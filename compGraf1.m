@@ -104,7 +104,7 @@ function contrastBtn_Callback(hObject, eventdata, handles)
 set(handles.text5,'Visible','on');
 set(handles.contrastImage,'Visible','off');
 sourceImagePath=get(handles.path,'String');
-sourceGraf=imread(char(sourceImagePath));
+sourceGraf=rgb2gray(imread(char(sourceImagePath)));
 ymin=str2num(get(handles.edit3,'string'));
 ymax=str2num(get(handles.edit4,'string'));
 [m,n]=size(sourceGraf);
@@ -144,7 +144,7 @@ function openImageBtn_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 [sourceImage,sourceImagePath]=uigetfile('*.*','File Selector','C:\Users\Lenovo\Documents\MATLAB\Images\');
-sourceImageGraph=imread(char(fullfile(sourceImagePath,sourceImage)));
+sourceImageGraph=rgb2gray(imread(char(fullfile(sourceImagePath,sourceImage))));
 set(handles.path,'String',strcat(sourceImagePath,sourceImage));
 imshow(sourceImageGraph,'Parent',handles.sourceImage);
 
